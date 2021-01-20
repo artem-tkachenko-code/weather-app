@@ -1,0 +1,78 @@
+<div class="weatherWrapper">
+    <div class="cityNameWrapper">
+        <h1 *ngIf="city; else cityPlaceholder">{{ city | uppercase }}</h1>
+        <ng-template #cityPlaceholder>
+            <h1>Choose your city</h1>
+        </ng-template>
+        <h2>{{ currentDay }}</h2>
+        <h3>{{ currentTime$ | async | date: 'HH:mm:ss'}}</h3>
+    </div>
+
+    <div class="mainContainer">
+        <div class="currentWeatherContainer" *ngIf="showWeather">
+            <div class="currentTemp">
+                <div class="currentWeatherIcon">
+                    <fa-icon [icon]="temp"></fa-icon>
+                    <p>Current</p>
+                </div>
+                <span>
+                    {{weather.main?.temp - 273.15 | number:'1.0-0'}}<sup>o</sup>C
+                </span>
+            </div>
+            <div class="currentDetailsWrapper">
+                <div id="row">
+                    <div class="currentDetails">
+                        <div class="currentWeatherIcon">
+                            <fa-icon [icon]="tempHigh"></fa-icon>
+                            <p>Max</p>
+                        </div>
+                        <span>
+                            {{weather.main?.temp_max - 273.15 | number:'1.0-0'}}<sup>o</sup>C
+                        </span>
+                    </div>
+                    <div class="currentDetails">
+                        <div class="currentWeatherIcon">
+                            <fa-icon [icon]="tempLow"></fa-icon>
+                            <p>Min</p>
+                        </div>
+                        <span>
+                            {{weather.main?.temp_min - 273.15 | number:'1.0-0'}}<sup>o</sup>C
+                        </span>
+                    </div>
+                    <div class="currentDetails">
+                        <div class="currentWeatherIcon">
+                            <fa-icon [icon]="feelsLike"></fa-icon>
+                            <p>Feels</p>
+                        </div>
+                        <span>
+                            {{weather.main?.feels_like - 273.15 |
+                            number:'1.0-0'}}<sup>o</sup>C
+                        </span>
+                    </div>
+                </div>
+                <div id="row">
+                    <div class="currentDetails">
+                        <div class="currentWeatherIcon">
+                            <fa-icon [icon]="pressure"></fa-icon>
+                            <p>Pressure</p>
+                        </div>
+                        <span>
+                            {{weather.main?.pressure}}<sup></sup>hPa
+                        </span>
+                    </div>
+                    <div class="currentDetails">
+                        <div class="currentWeatherIcon">
+                            <fa-icon [icon]="humidity"></fa-icon>
+                            <p>Humidity</p>
+                        </div>
+                        <span>
+                            {{weather.main?.humidity}}<sup></sup>%
+                        </span>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <div class="forecastWeatherWrapper">
+        </div>
+    </div>
+</div>

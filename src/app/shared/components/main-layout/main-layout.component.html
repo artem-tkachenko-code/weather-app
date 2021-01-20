@@ -1,0 +1,23 @@
+<nav class="navbar">
+  <div>
+    <a href="">Main Page</a>
+    <a href="">CHUMBA</a>
+  </div>
+
+  <div class="search-wrapper">
+    <form [formGroup]="stateForm">
+      <input type="text" matInput formControlName="stateGroup" [matAutocomplete]="autoGroup" class="search"
+        placeholder="Search city">
+      <mat-autocomplete #autoGroup="matAutocomplete">
+        <mat-optgroup *ngFor="let group of stateGroupOptions | async | slice:0:7" [label]="group.country">
+          <mat-option *ngFor="let name of group.city" [value]="name">
+            {{name}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-autocomplete>
+      <button type="submit" (click)="submitCity()" class="material-icons search-btn">search</button>
+    </form>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

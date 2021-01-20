@@ -1,0 +1,104 @@
+.weatherWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+
+    .cityNameWrapper {
+        height: 18vh;
+        text-align: center;
+
+        h1 {
+            font-weight: bold;
+            font-size: 2.3vw;
+            margin: 0 0 7px;
+        }
+
+        h2 {
+            margin: 0 0 3px;
+            font-size: 1.5vw;
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 1.35vw;
+        }
+    }
+
+    .mainContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 70vw;
+        height: 60vh;
+        box-shadow: 0 0 16px 0 rgba(0, 0, 0, .2);
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, .15);
+        backdrop-filter: blur(5px);
+
+        .currentWeatherContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            width: 50%;
+
+            .currentTemp {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .currentDetailsWrapper {
+                display: flex;
+                flex-direction: column;
+
+                .currentDetails {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    border-right: 1px #fff solid;
+                    border-left: 1px #fff solid;
+
+                    &:nth-child(2) {
+                        border-left: 0px;
+                    }
+
+                    &:nth-child(3) {
+                        border-left: 0px;
+                    }
+                }
+
+                .currentWeatherIcon {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 18px;
+                    margin: 0 10px;
+
+                    p {
+                        margin: 0;
+                    }
+                }
+
+                span {
+                    font-size: 22px;
+                    font-weight: 500;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .forecastWeatherWrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+        }
+    }
+}
